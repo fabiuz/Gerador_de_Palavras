@@ -87,21 +87,7 @@ namespace Gerador_de_Palavras
                 MessageBox.Show("Você deve selecionar pelo menos 1 caractere.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            //// Vamos tentar alocar o arranjo.
-            //try
-            //{
-            //    todos_os_caracteres = new string[caracteres_selecionados.Length];
-            //    todos_os_caracteres.ToArray().CopyTo(todos_os_caracteres, 0);
-            //}catch(Exception exc)
-            //{
-            //    MessageBox.Show(exc.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-            // Vamos alterar para o diretório que iremos criar
-            // O usuário seleciona o diretório e dentro deste diretório é criado uma pasta para guardar
-            // os arquivos.
 
-            // Se o usuário não selecionou nenhum diretório, indicar o diretório corrente do aplicativo.
             if (string.IsNullOrEmpty(strDiretorio_selecionado))
                 strDiretorio_selecionado = Directory.GetCurrentDirectory();
 
@@ -166,6 +152,9 @@ namespace Gerador_de_Palavras
 
                 // Gerar o nome do primeiro arquivo.
                 quantidade_de_caracteres = 1;
+                // Dentro da função 'Gerar_Nome_de_Arquivo', o contador de arquivo é incrementado em 1.
+                // O primeiro arquivo, terá em uma parte do nome "arq_0000000000", como nome inicial.
+                contador_de_arquivos = -1;
                 Gerar_Nome_de_Arquivo();
 
                 // Vamos gravar o nome do primeiro arquivo que será criado, na próxima linha disponível em '*_proximo_arquivo.txt".

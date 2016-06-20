@@ -805,7 +805,12 @@ namespace Gerador_de_Palavras
 
         private void btnAbrir_Diretorio_Click(object sender, EventArgs e)
         {
-
+            dlgDiretorio.SelectedPath = Directory.GetCurrentDirectory();
+            if (dlgDiretorio.ShowDialog() == DialogResult.OK)
+            {
+                strDiretorio_selecionado = dlgDiretorio.SelectedPath;
+                txtDiretorio.Text = strDiretorio_selecionado;
+            }
         }
     }
 

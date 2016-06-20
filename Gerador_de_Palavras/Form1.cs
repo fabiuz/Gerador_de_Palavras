@@ -152,6 +152,7 @@ namespace Gerador_de_Palavras
 
                 // Gerar o nome do primeiro arquivo.
                 quantidade_de_caracteres = 1;
+
                 // Dentro da função 'Gerar_Nome_de_Arquivo', o contador de arquivo é incrementado em 1.
                 // O primeiro arquivo, terá em uma parte do nome "arq_0000000000", como nome inicial.
                 contador_de_arquivos = -1;

@@ -253,11 +253,19 @@ namespace Gerador_de_Palavras
                         return;
                     }
 
+                    // O loop abaixo cria uma nova palavra utilizando a palavra lida do arquivo e cada caractere que o usuário deseja.
                     contador_de_palavras = 0;
                     foreach (var strPalavra in lista_de_palavras)
                     {
+                      
                         foreach (var caractere in caracteres_selecionados.ToArray())
                         {
+                            // Se o usuário clicou em Parar, a variável abaixo foi definida para true.
+                            if (this.bInterromper_geracao)
+                            {
+                                return;
+                            }
+
                             var strNova_Palavra = strPalavra + caractere.ToString();
 
                             // Se a nova palavra gerada é maior que a quantidade de caracteres por palavra, terminar então.
@@ -343,6 +351,11 @@ namespace Gerador_de_Palavras
                 else
                     MessageBox.Show("Executado com sucesso!!!", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
+                // Aqui, como estamos geralmente, trabalhando com somente um thread não terá problema nenhuma.
+                // Nós criamos o thread, simplesmente, para evitar que a tela fique travada.
+                this.btnParar.Enabled = false;
+                this.btnGerar.Enabled = true;
+
             }
             catch(Exception exc)
             {
@@ -426,7 +439,9 @@ namespace Gerador_de_Palavras
         Random numero_aleatorio = new Random((int)DateTime.Now.Ticks);
 
 
-
+        /// <summary>
+        ///     Cada listBox guarda um tipo de caractere, a função adiciona o caractere no listBox correspondente.
+        /// </summary>
         private void Carregar_ListBox()
         {
             Font fonte_mono = new Font("Consolas", 9);
@@ -513,9 +528,12 @@ namespace Gerador_de_Palavras
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // Botão parar deve estar desativado pois não foi executado nenhum Thread ainda.
+            btnParar.Enabled = false;
+
             upLinhas_por_Arquivo.Value = 1000000;
             upCaracteres_por_Palavra.Value = 10;
-            txtCaracteres_Selecionados.Text = caracteres_selecionados;
+            //txtCaracteres_Selecionados.Text = caracteres_selecionados;
             rotulo_dos_caracteres.Text = caracteres_selecionados;
         }
 
@@ -552,7 +570,7 @@ namespace Gerador_de_Palavras
             }
 
             exibir_caracteres();
-            txtCaracteres_Selecionados.Text = caracteres_selecionados;
+            //txtCaracteres_Selecionados.Text = caracteres_selecionados;
         }
 
         private void exibir_caracteres()
@@ -576,10 +594,8 @@ namespace Gerador_de_Palavras
                         caracteres_selecionados += (char)iA;
                 
             }
-
-            txtCaracteres_Selecionados.Text = caracteres_selecionados;
+            
             rotulo_dos_caracteres.Text = caracteres_selecionados;
-
             rotulo_dos_caracteres.Text += "\n(" + caracteres_selecionados.Length + " caracteres)";
         }
 
@@ -709,6 +725,7 @@ namespace Gerador_de_Palavras
             }
 
             btnGerar.Enabled = false;
+            btnParar.Enabled = true;
             thread_de_palavras = new Thread(new ThreadStart(Gerar_Palavras));
             thread_de_palavras.Start();
 
@@ -762,13 +779,14 @@ namespace Gerador_de_Palavras
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             palavras_info informacao_das_palavras = (palavras_info)e.UserState;
-            log_geracao.Text = informacao_das_palavras.strPalavra;
+            //log_geracao.Text = informacao_das_palavras.strPalavra;
             //log_geracao.Refresh();
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             btnGerar.Enabled = true;
+            btnParar.Enabled = false;
         }
 
         private void btnParar_Click(object sender, EventArgs e)
@@ -776,8 +794,14 @@ namespace Gerador_de_Palavras
             if(MessageBox.Show("Desejar interromper a geração.", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information)== DialogResult.Yes)
             {
                 bInterromper_geracao = true;
+                // Ativar e desativar controles.
                 btnGerar.Enabled = true;
-                thread_de_palavras.Abort();
+                btnParar.Enabled = false;
+                if (thread_de_palavras.IsAlive)
+                {
+                    thread_de_palavras.Suspend();
+                    thread_de_palavras.Interrupt();
+                }
             }
         }
 

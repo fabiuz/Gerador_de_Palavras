@@ -28,13 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.txtCaracteres_Selecionados = new System.Windows.Forms.TextBox();
             this.btnDesmarcar_Maiuscula_az = new System.Windows.Forms.Button();
             this.btnMarcar_Maiuscula_az = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
@@ -78,7 +75,6 @@
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.btnAbrir_Diretorio = new System.Windows.Forms.Button();
             this.txtDiretorio = new System.Windows.Forms.TextBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.dlgDiretorio = new System.Windows.Forms.FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -86,7 +82,6 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.groupBox12.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -103,14 +98,6 @@
             this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 615);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(909, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
             // splitContainer1
             // 
             this.splitContainer1.Location = new System.Drawing.Point(23, 30);
@@ -122,14 +109,15 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Location = new System.Drawing.Point(12, 10);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(909, 615);
+            this.tabControl1.Size = new System.Drawing.Size(910, 649);
             this.tabControl1.TabIndex = 4;
             // 
             // tabPage1
@@ -138,7 +126,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(901, 589);
+            this.tabPage1.Size = new System.Drawing.Size(902, 623);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Selecionar caracteres";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -153,7 +141,6 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.Controls.Add(this.groupBox12, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.btnDesmarcar_Maiuscula_az, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.btnMarcar_Maiuscula_az, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.groupBox7, 2, 1);
@@ -180,46 +167,23 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 83F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78.01608F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.434053F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.153478F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.56893F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.6402F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.700162F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.376013F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.538087F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(895, 583);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(896, 617);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // groupBox12
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.groupBox12, 6);
-            this.groupBox12.Controls.Add(this.txtCaracteres_Selecionados);
-            this.groupBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox12.Location = new System.Drawing.Point(3, 566);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(756, 14);
-            this.groupBox12.TabIndex = 28;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Digite os caracteres, ou selecione nas listas abaixo:";
-            // 
-            // txtCaracteres_Selecionados
-            // 
-            this.txtCaracteres_Selecionados.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCaracteres_Selecionados.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCaracteres_Selecionados.Location = new System.Drawing.Point(3, 16);
-            this.txtCaracteres_Selecionados.Multiline = true;
-            this.txtCaracteres_Selecionados.Name = "txtCaracteres_Selecionados";
-            this.txtCaracteres_Selecionados.Size = new System.Drawing.Size(750, 0);
-            this.txtCaracteres_Selecionados.TabIndex = 0;
             // 
             // btnDesmarcar_Maiuscula_az
             // 
             this.btnDesmarcar_Maiuscula_az.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDesmarcar_Maiuscula_az.Location = new System.Drawing.Point(257, 505);
+            this.btnDesmarcar_Maiuscula_az.Location = new System.Drawing.Point(259, 564);
             this.btnDesmarcar_Maiuscula_az.Name = "btnDesmarcar_Maiuscula_az";
-            this.btnDesmarcar_Maiuscula_az.Size = new System.Drawing.Size(121, 23);
+            this.btnDesmarcar_Maiuscula_az.Size = new System.Drawing.Size(122, 21);
             this.btnDesmarcar_Maiuscula_az.TabIndex = 25;
             this.btnDesmarcar_Maiuscula_az.Text = "Desmarcar todos";
             this.btnDesmarcar_Maiuscula_az.UseVisualStyleBackColor = true;
@@ -229,9 +193,9 @@
             // 
             this.btnMarcar_Maiuscula_az.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMarcar_Maiuscula_az.Location = new System.Drawing.Point(257, 469);
+            this.btnMarcar_Maiuscula_az.Location = new System.Drawing.Point(259, 535);
             this.btnMarcar_Maiuscula_az.Name = "btnMarcar_Maiuscula_az";
-            this.btnMarcar_Maiuscula_az.Size = new System.Drawing.Size(121, 23);
+            this.btnMarcar_Maiuscula_az.Size = new System.Drawing.Size(122, 23);
             this.btnMarcar_Maiuscula_az.TabIndex = 24;
             this.btnMarcar_Maiuscula_az.Text = "Marcar todos";
             this.btnMarcar_Maiuscula_az.UseVisualStyleBackColor = true;
@@ -241,9 +205,9 @@
             // 
             this.groupBox7.Controls.Add(this.lskMaiuscula_az);
             this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox7.Location = new System.Drawing.Point(257, 86);
+            this.groupBox7.Location = new System.Drawing.Point(259, 130);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(121, 377);
+            this.groupBox7.Size = new System.Drawing.Size(122, 399);
             this.groupBox7.TabIndex = 23;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "De \'A\' a \'Z\' (maiúscula):";
@@ -255,7 +219,7 @@
             this.lskMaiuscula_az.FormattingEnabled = true;
             this.lskMaiuscula_az.Location = new System.Drawing.Point(3, 16);
             this.lskMaiuscula_az.Name = "lskMaiuscula_az";
-            this.lskMaiuscula_az.Size = new System.Drawing.Size(115, 358);
+            this.lskMaiuscula_az.Size = new System.Drawing.Size(116, 380);
             this.lskMaiuscula_az.TabIndex = 0;
             this.lskMaiuscula_az.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkBox_ItemCheck);
             // 
@@ -263,9 +227,9 @@
             // 
             this.btnDesmarcar_Minuscula_az.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDesmarcar_Minuscula_az.Location = new System.Drawing.Point(130, 505);
+            this.btnDesmarcar_Minuscula_az.Location = new System.Drawing.Point(131, 564);
             this.btnDesmarcar_Minuscula_az.Name = "btnDesmarcar_Minuscula_az";
-            this.btnDesmarcar_Minuscula_az.Size = new System.Drawing.Size(121, 24);
+            this.btnDesmarcar_Minuscula_az.Size = new System.Drawing.Size(122, 21);
             this.btnDesmarcar_Minuscula_az.TabIndex = 22;
             this.btnDesmarcar_Minuscula_az.Text = "Desmarcar todos";
             this.btnDesmarcar_Minuscula_az.UseVisualStyleBackColor = true;
@@ -275,9 +239,9 @@
             // 
             this.btnMarcar_Minuscula_az.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMarcar_Minuscula_az.Location = new System.Drawing.Point(130, 469);
+            this.btnMarcar_Minuscula_az.Location = new System.Drawing.Point(131, 535);
             this.btnMarcar_Minuscula_az.Name = "btnMarcar_Minuscula_az";
-            this.btnMarcar_Minuscula_az.Size = new System.Drawing.Size(121, 23);
+            this.btnMarcar_Minuscula_az.Size = new System.Drawing.Size(122, 23);
             this.btnMarcar_Minuscula_az.TabIndex = 21;
             this.btnMarcar_Minuscula_az.Text = "Marcar todos";
             this.btnMarcar_Minuscula_az.UseVisualStyleBackColor = true;
@@ -287,9 +251,9 @@
             // 
             this.groupBox2.Controls.Add(this.lskMinuscula_az);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(130, 86);
+            this.groupBox2.Location = new System.Drawing.Point(131, 130);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(121, 377);
+            this.groupBox2.Size = new System.Drawing.Size(122, 399);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "De \'a\' a \'z\' (minúscula):";
@@ -301,12 +265,14 @@
             this.lskMinuscula_az.FormattingEnabled = true;
             this.lskMinuscula_az.Location = new System.Drawing.Point(3, 16);
             this.lskMinuscula_az.Name = "lskMinuscula_az";
-            this.lskMinuscula_az.Size = new System.Drawing.Size(115, 358);
+            this.lskMinuscula_az.Size = new System.Drawing.Size(116, 380);
             this.lskMinuscula_az.TabIndex = 0;
             this.lskMinuscula_az.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkBox_ItemCheck);
             // 
             // rotulo_dos_caracteres
             // 
+            this.rotulo_dos_caracteres.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rotulo_dos_caracteres.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.rotulo_dos_caracteres, 7);
             this.rotulo_dos_caracteres.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -314,7 +280,7 @@
             this.rotulo_dos_caracteres.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.rotulo_dos_caracteres.Location = new System.Drawing.Point(3, 0);
             this.rotulo_dos_caracteres.Name = "rotulo_dos_caracteres";
-            this.rotulo_dos_caracteres.Size = new System.Drawing.Size(98, 21);
+            this.rotulo_dos_caracteres.Size = new System.Drawing.Size(890, 21);
             this.rotulo_dos_caracteres.TabIndex = 19;
             this.rotulo_dos_caracteres.Text = "sadfasdf";
             this.rotulo_dos_caracteres.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -323,9 +289,9 @@
             // 
             this.groupBox6.Controls.Add(this.lskPontuacao);
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox6.Location = new System.Drawing.Point(638, 86);
+            this.groupBox6.Location = new System.Drawing.Point(643, 130);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(121, 377);
+            this.groupBox6.Size = new System.Drawing.Size(122, 399);
             this.groupBox6.TabIndex = 5;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Pontuação:";
@@ -337,7 +303,7 @@
             this.lskPontuacao.FormattingEnabled = true;
             this.lskPontuacao.Location = new System.Drawing.Point(3, 16);
             this.lskPontuacao.Name = "lskPontuacao";
-            this.lskPontuacao.Size = new System.Drawing.Size(115, 358);
+            this.lskPontuacao.Size = new System.Drawing.Size(116, 380);
             this.lskPontuacao.TabIndex = 0;
             this.lskPontuacao.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkBox_ItemCheck);
             // 
@@ -345,9 +311,9 @@
             // 
             this.groupBox5.Controls.Add(this.lskSimbolo);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox5.Location = new System.Drawing.Point(765, 86);
+            this.groupBox5.Location = new System.Drawing.Point(771, 130);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(127, 377);
+            this.groupBox5.Size = new System.Drawing.Size(122, 399);
             this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Símbolos:";
@@ -359,7 +325,7 @@
             this.lskSimbolo.FormattingEnabled = true;
             this.lskSimbolo.Location = new System.Drawing.Point(3, 16);
             this.lskSimbolo.Name = "lskSimbolo";
-            this.lskSimbolo.Size = new System.Drawing.Size(121, 358);
+            this.lskSimbolo.Size = new System.Drawing.Size(116, 380);
             this.lskSimbolo.TabIndex = 0;
             this.lskSimbolo.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkBox_ItemCheck);
             // 
@@ -367,9 +333,9 @@
             // 
             this.groupBox4.Controls.Add(this.lskMaiuscula);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(511, 86);
+            this.groupBox4.Location = new System.Drawing.Point(515, 130);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(121, 377);
+            this.groupBox4.Size = new System.Drawing.Size(122, 399);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Letras maiúsculas:";
@@ -381,7 +347,7 @@
             this.lskMaiuscula.FormattingEnabled = true;
             this.lskMaiuscula.Location = new System.Drawing.Point(3, 16);
             this.lskMaiuscula.Name = "lskMaiuscula";
-            this.lskMaiuscula.Size = new System.Drawing.Size(115, 358);
+            this.lskMaiuscula.Size = new System.Drawing.Size(116, 380);
             this.lskMaiuscula.TabIndex = 0;
             this.lskMaiuscula.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkBox_ItemCheck);
             // 
@@ -389,9 +355,9 @@
             // 
             this.groupBox3.Controls.Add(this.lskMinuscula);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(384, 86);
+            this.groupBox3.Location = new System.Drawing.Point(387, 130);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(121, 377);
+            this.groupBox3.Size = new System.Drawing.Size(122, 399);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Letras de \'a\' a \'z\':";
@@ -403,7 +369,7 @@
             this.lskMinuscula.FormattingEnabled = true;
             this.lskMinuscula.Location = new System.Drawing.Point(3, 16);
             this.lskMinuscula.Name = "lskMinuscula";
-            this.lskMinuscula.Size = new System.Drawing.Size(115, 358);
+            this.lskMinuscula.Size = new System.Drawing.Size(116, 380);
             this.lskMinuscula.TabIndex = 0;
             this.lskMinuscula.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkBox_ItemCheck);
             // 
@@ -411,9 +377,9 @@
             // 
             this.groupBox1.Controls.Add(this.lskDigitos);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 86);
+            this.groupBox1.Location = new System.Drawing.Point(3, 130);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(121, 377);
+            this.groupBox1.Size = new System.Drawing.Size(122, 399);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Digitos:";
@@ -425,7 +391,7 @@
             this.lskDigitos.FormattingEnabled = true;
             this.lskDigitos.Location = new System.Drawing.Point(3, 16);
             this.lskDigitos.Name = "lskDigitos";
-            this.lskDigitos.Size = new System.Drawing.Size(115, 358);
+            this.lskDigitos.Size = new System.Drawing.Size(116, 380);
             this.lskDigitos.TabIndex = 0;
             this.lskDigitos.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkBox_ItemCheck);
             // 
@@ -433,9 +399,9 @@
             // 
             this.btnMarcar_Digitos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMarcar_Digitos.Location = new System.Drawing.Point(3, 469);
+            this.btnMarcar_Digitos.Location = new System.Drawing.Point(3, 535);
             this.btnMarcar_Digitos.Name = "btnMarcar_Digitos";
-            this.btnMarcar_Digitos.Size = new System.Drawing.Size(121, 23);
+            this.btnMarcar_Digitos.Size = new System.Drawing.Size(122, 23);
             this.btnMarcar_Digitos.TabIndex = 6;
             this.btnMarcar_Digitos.Text = "Marcar todos";
             this.btnMarcar_Digitos.UseVisualStyleBackColor = true;
@@ -445,9 +411,9 @@
             // 
             this.btnMarcar_Minuscula.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMarcar_Minuscula.Location = new System.Drawing.Point(384, 469);
+            this.btnMarcar_Minuscula.Location = new System.Drawing.Point(387, 535);
             this.btnMarcar_Minuscula.Name = "btnMarcar_Minuscula";
-            this.btnMarcar_Minuscula.Size = new System.Drawing.Size(121, 23);
+            this.btnMarcar_Minuscula.Size = new System.Drawing.Size(122, 23);
             this.btnMarcar_Minuscula.TabIndex = 7;
             this.btnMarcar_Minuscula.Text = "Marcar todos";
             this.btnMarcar_Minuscula.UseVisualStyleBackColor = true;
@@ -457,9 +423,9 @@
             // 
             this.btnMarcar_Simbolo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMarcar_Simbolo.Location = new System.Drawing.Point(765, 469);
+            this.btnMarcar_Simbolo.Location = new System.Drawing.Point(771, 535);
             this.btnMarcar_Simbolo.Name = "btnMarcar_Simbolo";
-            this.btnMarcar_Simbolo.Size = new System.Drawing.Size(127, 23);
+            this.btnMarcar_Simbolo.Size = new System.Drawing.Size(122, 23);
             this.btnMarcar_Simbolo.TabIndex = 10;
             this.btnMarcar_Simbolo.Text = "Marcar todos";
             this.btnMarcar_Simbolo.UseVisualStyleBackColor = true;
@@ -469,9 +435,9 @@
             // 
             this.btnDesmarcar_Simbolo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDesmarcar_Simbolo.Location = new System.Drawing.Point(765, 505);
+            this.btnDesmarcar_Simbolo.Location = new System.Drawing.Point(771, 564);
             this.btnDesmarcar_Simbolo.Name = "btnDesmarcar_Simbolo";
-            this.btnDesmarcar_Simbolo.Size = new System.Drawing.Size(127, 24);
+            this.btnDesmarcar_Simbolo.Size = new System.Drawing.Size(122, 21);
             this.btnDesmarcar_Simbolo.TabIndex = 13;
             this.btnDesmarcar_Simbolo.Text = "Desmarcar todos";
             this.btnDesmarcar_Simbolo.UseVisualStyleBackColor = true;
@@ -481,9 +447,9 @@
             // 
             this.btnMarcar_Maiuscula.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMarcar_Maiuscula.Location = new System.Drawing.Point(511, 469);
+            this.btnMarcar_Maiuscula.Location = new System.Drawing.Point(515, 535);
             this.btnMarcar_Maiuscula.Name = "btnMarcar_Maiuscula";
-            this.btnMarcar_Maiuscula.Size = new System.Drawing.Size(121, 23);
+            this.btnMarcar_Maiuscula.Size = new System.Drawing.Size(122, 23);
             this.btnMarcar_Maiuscula.TabIndex = 9;
             this.btnMarcar_Maiuscula.Text = "Marcar todos";
             this.btnMarcar_Maiuscula.UseVisualStyleBackColor = true;
@@ -493,9 +459,9 @@
             // 
             this.btnMarcar_Pontuacao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMarcar_Pontuacao.Location = new System.Drawing.Point(638, 469);
+            this.btnMarcar_Pontuacao.Location = new System.Drawing.Point(643, 535);
             this.btnMarcar_Pontuacao.Name = "btnMarcar_Pontuacao";
-            this.btnMarcar_Pontuacao.Size = new System.Drawing.Size(121, 23);
+            this.btnMarcar_Pontuacao.Size = new System.Drawing.Size(122, 23);
             this.btnMarcar_Pontuacao.TabIndex = 11;
             this.btnMarcar_Pontuacao.Text = "Marcar todos";
             this.btnMarcar_Pontuacao.UseVisualStyleBackColor = true;
@@ -505,9 +471,9 @@
             // 
             this.btnDesmarcar_Pontuacao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDesmarcar_Pontuacao.Location = new System.Drawing.Point(638, 505);
+            this.btnDesmarcar_Pontuacao.Location = new System.Drawing.Point(643, 564);
             this.btnDesmarcar_Pontuacao.Name = "btnDesmarcar_Pontuacao";
-            this.btnDesmarcar_Pontuacao.Size = new System.Drawing.Size(121, 24);
+            this.btnDesmarcar_Pontuacao.Size = new System.Drawing.Size(122, 21);
             this.btnDesmarcar_Pontuacao.TabIndex = 15;
             this.btnDesmarcar_Pontuacao.Text = "Desmarcar todos";
             this.btnDesmarcar_Pontuacao.UseVisualStyleBackColor = true;
@@ -517,9 +483,9 @@
             // 
             this.btnDesmarcar_Digito.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDesmarcar_Digito.Location = new System.Drawing.Point(3, 505);
+            this.btnDesmarcar_Digito.Location = new System.Drawing.Point(3, 564);
             this.btnDesmarcar_Digito.Name = "btnDesmarcar_Digito";
-            this.btnDesmarcar_Digito.Size = new System.Drawing.Size(121, 24);
+            this.btnDesmarcar_Digito.Size = new System.Drawing.Size(122, 21);
             this.btnDesmarcar_Digito.TabIndex = 12;
             this.btnDesmarcar_Digito.Text = "Desmarcar todos";
             this.btnDesmarcar_Digito.UseVisualStyleBackColor = true;
@@ -529,9 +495,9 @@
             // 
             this.btnDesmarcar_Maiuscula.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDesmarcar_Maiuscula.Location = new System.Drawing.Point(511, 505);
+            this.btnDesmarcar_Maiuscula.Location = new System.Drawing.Point(515, 564);
             this.btnDesmarcar_Maiuscula.Name = "btnDesmarcar_Maiuscula";
-            this.btnDesmarcar_Maiuscula.Size = new System.Drawing.Size(121, 24);
+            this.btnDesmarcar_Maiuscula.Size = new System.Drawing.Size(122, 21);
             this.btnDesmarcar_Maiuscula.TabIndex = 14;
             this.btnDesmarcar_Maiuscula.Text = "Desmarcar todos";
             this.btnDesmarcar_Maiuscula.UseVisualStyleBackColor = true;
@@ -541,9 +507,9 @@
             // 
             this.btnDesmarcar_Minuscula.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDesmarcar_Minuscula.Location = new System.Drawing.Point(384, 505);
+            this.btnDesmarcar_Minuscula.Location = new System.Drawing.Point(387, 564);
             this.btnDesmarcar_Minuscula.Name = "btnDesmarcar_Minuscula";
-            this.btnDesmarcar_Minuscula.Size = new System.Drawing.Size(121, 24);
+            this.btnDesmarcar_Minuscula.Size = new System.Drawing.Size(122, 21);
             this.btnDesmarcar_Minuscula.TabIndex = 8;
             this.btnDesmarcar_Minuscula.Text = "Desmarcar todos";
             this.btnDesmarcar_Minuscula.UseVisualStyleBackColor = true;
@@ -552,9 +518,9 @@
             // chkOrdenar_Ascii
             // 
             this.chkOrdenar_Ascii.AutoSize = true;
-            this.chkOrdenar_Ascii.Location = new System.Drawing.Point(765, 545);
+            this.chkOrdenar_Ascii.Location = new System.Drawing.Point(771, 591);
             this.chkOrdenar_Ascii.Name = "chkOrdenar_Ascii";
-            this.chkOrdenar_Ascii.Size = new System.Drawing.Size(127, 15);
+            this.chkOrdenar_Ascii.Size = new System.Drawing.Size(122, 17);
             this.chkOrdenar_Ascii.TabIndex = 26;
             this.chkOrdenar_Ascii.Text = "Dispor em ordem ASCII";
             this.chkOrdenar_Ascii.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -572,7 +538,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(901, 589);
+            this.tabPage2.Size = new System.Drawing.Size(902, 623);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Gerar";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -740,16 +706,6 @@
             this.txtDiretorio.TabIndex = 0;
             this.txtDiretorio.TextChanged += new System.EventHandler(this.txtDiretorio_TextChanged);
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(898, 543);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Continuar de onde parou";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
             // backgroundWorker1
             // 
             this.backgroundWorker1.WorkerReportsProgress = true;
@@ -762,10 +718,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(909, 637);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(934, 671);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.splitContainer1);
-            this.Controls.Add(this.statusStrip1);
             this.Name = "Form1";
             this.Text = "Gerador de Palavras";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -775,8 +731,6 @@
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
@@ -794,12 +748,10 @@
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
@@ -839,7 +791,6 @@
         private System.Windows.Forms.TextBox txtDiretorio;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button btnAbrir_Diretorio;
-        private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button btnGerar;
         private System.Windows.Forms.Button btnParar;
         private System.Windows.Forms.FolderBrowserDialog dlgDiretorio;
@@ -850,8 +801,6 @@
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.Label log_geracao;
         private System.Windows.Forms.CheckBox chkLog_Visivel;
-        private System.Windows.Forms.GroupBox groupBox12;
-        private System.Windows.Forms.TextBox txtCaracteres_Selecionados;
     }
 }
 

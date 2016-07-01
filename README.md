@@ -3,6 +3,7 @@ Autor: Fábio Moura de Oliveira
 Data da criação:  30/12/2015
 Data da postagem no github: 20/06/2016
 
+
 Objetivo:
 Gerar todas as palavras possíveis com os caracteres selecionados.
 

@@ -12,6 +12,20 @@ Usuário selecione os caracteres que deseja que tenha na palavra.
 Usuário seleciona a quantidade máxima de caractere que a palavra pode ter utilizando os caracteres.
 Usuário seleciona o destino onde será guardado os arquivos.
 
+Exemplo:
+O usuário seleciona os caracteres 'a', 'b', 'c', e 'd', e uma palavra até no máximo de 5 caracteres, por exemplo, então, o programa gera todas as palavras possíveis utilizando os caracteres indicados acima:
+
+a   ab   ac   ad 
+ba  bb   bc   bd
+ca  cb   cc   cd
+aaa aab  aac  aad
+aba abb  abc  abd
+aca acb  acc  acd
+ada adb  adc  add
+
+E assim por diante.
+
+
 
 
 

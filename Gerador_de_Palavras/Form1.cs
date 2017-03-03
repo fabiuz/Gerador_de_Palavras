@@ -117,8 +117,6 @@ namespace Gerador_de_Palavras
                 lista_de_palavras.Add(chCaractere.ToString());
             }
             
-
-
             try {
 
                 // O algorítmo que gera todas as palavras possíveis funciona desta forma:
@@ -204,141 +202,151 @@ namespace Gerador_de_Palavras
                 posicao_da_proxima_leitura = 0;
                 for (;;)
                 {
-                    // Serve para guarda a próxima lista de palavras criadas, quando, termina o processamento
-                    // iremos apontar a variável 'proxima_lista_de_palavras' para 'lista_de_palavras'.
-                    contagem_de_linha = 0;
-                    bool gravar_arquivo = false;
-
-                    // Indica a próxima posição a ler, estamos utilizando isto, pois, abrimos o mesmo arquivo
-                    // para leitura e gravação.
-                    arquivo_proximo_ler.BaseStream.Position = posicao_da_proxima_leitura;
-                    var strArquivo_Proximo = arquivo_proximo_ler.ReadLine();
-                    posicao_da_proxima_leitura = arquivo_proximo_ler.BaseStream.Position;
-
-                    // Vamos verificar se o arquivo existe.
-                    if (!File.Exists(strArquivo_Proximo))
+                    try
                     {
-                        MessageBox.Show("Arquivo não existe: " + strArquivo_Proximo, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
 
-                    // Ler todo o conteúdo do arquivo e colocar em lista_de_palavras
-                    StreamReader arquivo_proximo_stream = new StreamReader(strArquivo_Proximo, Encoding.UTF8);
-                    if (arquivo_proximo_stream.EndOfStream)
-                    {
-                        MessageBox.Show("Arquivo está vazio: " + strArquivo_Proximo, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
 
-                    lista_de_palavras.Clear();
-                    // Ler cada linha e coloca em lista de palavras.
-                    
-                    while (!arquivo_proximo_stream.EndOfStream)
-                    {
-                        lista_de_palavras.Add(arquivo_proximo_stream.ReadLine());
-                        if (chkLog_Visivel.Checked)
+                        // Serve para guarda a próxima lista de palavras criadas, quando, termina o processamento
+                        // iremos apontar a variável 'proxima_lista_de_palavras' para 'lista_de_palavras'.
+                        contagem_de_linha = 0;
+                        bool gravar_arquivo = false;
+
+                        // Indica a próxima posição a ler, estamos utilizando isto, pois, abrimos o mesmo arquivo
+                        // para leitura e gravação.
+                        arquivo_proximo_ler.BaseStream.Position = posicao_da_proxima_leitura;
+                        var strArquivo_Proximo = arquivo_proximo_ler.ReadLine();
+                        posicao_da_proxima_leitura = arquivo_proximo_ler.BaseStream.Position;
+
+                        // Vamos verificar se o arquivo existe.
+                        if (!File.Exists(strArquivo_Proximo))
                         {
-                            log_geracao.Text = "Lendo arquivo: " + strArquivo_Proximo + ", linhas lidas: " +
-                                                string.Format("{0:D10}", lista_de_palavras.Count);
+                            MessageBox.Show("Arquivo não existe: " + strArquivo_Proximo, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
                         }
-                    }
 
-                    arquivo_sendo_lido = strArquivo_Proximo;
-
-                    // Vamos verificar a quantidade de palavras encontradas, se for maior que a quantidade
-                    // de linhas no arquivo informada pelo usuário, há algo errado.
-                    if(lista_de_palavras.Count > qt_maxima_de_linhas_no_arquivo)
-                    {
-                        MessageBox.Show("A quantidade de linhas no arquivo é maior que a quantidade de linhas informada.");
-                        return;
-                    }
-
-                    // O loop abaixo cria uma nova palavra utilizando a palavra lida do arquivo e cada caractere que o usuário deseja.
-                    contador_de_palavras = 0;
-                    foreach (var strPalavra in lista_de_palavras)
-                    {
-                      
-                        foreach (var caractere in caracteres_selecionados.ToArray())
+                        // Ler todo o conteúdo do arquivo e colocar em lista_de_palavras
+                        StreamReader arquivo_proximo_stream = new StreamReader(strArquivo_Proximo, Encoding.UTF8);
+                        if (arquivo_proximo_stream.EndOfStream)
                         {
-                            // Se o usuário clicou em Parar, a variável abaixo foi definida para true.
-                            if (this.bInterromper_geracao)
-                            {
-                                return;
-                            }
+                            MessageBox.Show("Arquivo está vazio: " + strArquivo_Proximo, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
 
-                            var strNova_Palavra = strPalavra + caractere.ToString();
+                        lista_de_palavras.Clear();
+                        // Ler cada linha e coloca em lista de palavras.
 
-                            // Se a nova palavra gerada é maior que a quantidade de caracteres por palavra, terminar então.
-                            if (strNova_Palavra.Length > caracteres_por_palavra)
-                            {
-                                arquivo_proximo_gravar.Close();
-                                arquivo_proximo_ler.Close();
-                                arquivo_ja_lido_stream.Close();
-
-                                MessageBox.Show("Executado com sucesso!!!", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
-                                // Retornar ao diretório anterior
-                                strDiretorio = strDiretorio_anterior;
-                                return;
-                            }
-
-                            quantidade_de_caracteres = strNova_Palavra.Length;
-                            proxima_lista_de_palavras.Add(strNova_Palavra);
-
-                            if(++contador_de_palavras == qt_maxima_de_linhas_no_arquivo)
-                            {
-                                contador_de_palavras = 0;
-
-                                Gerar_Nome_de_Arquivo();
-                                Gravar_Conteudo_no_Arquivo();
-                                Gravar_Arquivo_Lido_Arquivo_Gerado("PARCIAL");
-                            }
-
-                            // Se o usuário deseja exibir o status.
+                        while (!arquivo_proximo_stream.EndOfStream)
+                        {
+                            lista_de_palavras.Add(arquivo_proximo_stream.ReadLine());
                             if (chkLog_Visivel.Checked)
                             {
-                                var strTexto_do_log = string.Format("Qt. de arquivos: {0:D10}, ", contador_de_arquivos);
-                                strTexto_do_log += string.Format("Qt. de palavras: {0:D10}, ", contador_de_palavras);
-                                strTexto_do_log += "palavra gerada: '" + strNova_Palavra + "', ";
-                                strTexto_do_log += "cmb: " + string.Format("Qt. de palavras: {0:D10}.", strNova_Palavra.Length);
-                                log_geracao.Text = strTexto_do_log;
-                                
+                                log_geracao.Text = "Lendo arquivo: " + strArquivo_Proximo + ", linhas lidas: " +
+                                                    string.Format("{0:D10}", lista_de_palavras.Count);
                             }
+                        }
 
+                        arquivo_sendo_lido = strArquivo_Proximo;
+
+                        // Vamos verificar a quantidade de palavras encontradas, se for maior que a quantidade
+                        // de linhas no arquivo informada pelo usuário, há algo errado.
+                        if (lista_de_palavras.Count > qt_maxima_de_linhas_no_arquivo)
+                        {
+                            MessageBox.Show("A quantidade de linhas no arquivo é maior que a quantidade de linhas informada.");
+                            return;
+                        }
+
+                        // O loop abaixo cria uma nova palavra utilizando a palavra lida do arquivo e cada caractere que o usuário deseja.
+                        contador_de_palavras = 0;
+                        foreach (var strPalavra in lista_de_palavras)
+                        {
+
+                            foreach (var caractere in caracteres_selecionados.ToArray())
+                            {
+                                // Se o usuário clicou em Parar, a variável abaixo foi definida para true.
+                                if (this.bInterromper_geracao)
+                                {
+                                    return;
+                                }
+
+                                var strNova_Palavra = strPalavra + caractere.ToString();
+
+                                // Se a nova palavra gerada é maior que a quantidade de caracteres por palavra, terminar então.
+                                if (strNova_Palavra.Length > caracteres_por_palavra)
+                                {
+                                    arquivo_proximo_gravar.Close();
+                                    arquivo_proximo_ler.Close();
+                                    arquivo_ja_lido_stream.Close();
+
+                                    MessageBox.Show("Executado com sucesso!!!", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                                    // Retornar ao diretório anterior
+                                    strDiretorio = strDiretorio_anterior;
+                                    return;
+                                }
+
+                                quantidade_de_caracteres = strNova_Palavra.Length;
+                                proxima_lista_de_palavras.Add(strNova_Palavra);
+
+                                if (++contador_de_palavras == qt_maxima_de_linhas_no_arquivo)
+                                {
+                                    contador_de_palavras = 0;
+
+                                    Gerar_Nome_de_Arquivo();
+                                    Gravar_Conteudo_no_Arquivo();
+                                    Gravar_Arquivo_Lido_Arquivo_Gerado("PARCIAL");
+                                }
+
+                                // Se o usuário deseja exibir o status.
+                                if (chkLog_Visivel.Checked)
+                                {
+                                    var strTexto_do_log = string.Format("Qt. de arquivos: {0:D10}, ", contador_de_arquivos);
+                                    strTexto_do_log += string.Format("Qt. de palavras: {0:D10}, ", contador_de_palavras);
+                                    strTexto_do_log += "palavra gerada: '" + strNova_Palavra + "', ";
+                                    strTexto_do_log += "cmb: " + string.Format("Qt. de palavras: {0:D10}.", strNova_Palavra.Length);
+                                    log_geracao.Text = strTexto_do_log;
+
+                                }
+
+
+                            }
 
                         }
 
+                        // Toda vez que lemos um arquivo, todas as palavras de cada linha deve ter a mesma quantidade de caracteres.
+                        // Toda vez que um arquivo é gerado, a quantidade de caracteres de uma palavra de cada linha é um caractere
+                        // maior, que a linha correspondente de onde este arquivo foi lido.
+                        // Então, quando terminamos de ler um arquivo por completo, temos que garantir que as palavras que ainda
+                        // não forem gravadas, sejam gravadas independente de a quantidade de palavras máxima por arquivo for 
+                        // atingida.
+                        // Este procedimento é realizado pois garante que cada arquivo gerado terá sempre em cada linha, palavras
+                        // com a mesma quantidade de caracteres.
+
+                        if (contador_de_palavras != 0)
+                        {
+                            contador_de_palavras = 0;
+
+                            Gerar_Nome_de_Arquivo();
+                            Gravar_Conteudo_no_Arquivo();
+                            Gravar_Arquivo_Lido_Arquivo_Gerado("INTEGRAL");
+                        }
+
+
+
+                        // Vamos apontar 'proxima_lista_de_palavras' para 'lista_de_palavras';
+                        lista_de_palavras.Clear();
+                        proxima_lista_de_palavras.Clear();
+
+                        if (bInterromper_geracao)
+                            break;
+
+                        //if (++quantidade_de_caracteres > caracteres_por_palavra)
+                        //    break;
+
                     }
-
-                    // Toda vez que lemos um arquivo, todas as palavras de cada linha deve ter a mesma quantidade de caracteres.
-                    // Toda vez que um arquivo é gerado, a quantidade de caracteres de uma palavra de cada linha é um caractere
-                    // maior, que a linha correspondente de onde este arquivo foi lido.
-                    // Então, quando terminamos de ler um arquivo por completo, temos que garantir que as palavras que ainda
-                    // não forem gravadas, sejam gravadas independente de a quantidade de palavras máxima por arquivo for 
-                    // atingida.
-                    // Este procedimento é realizado pois garante que cada arquivo gerado terá sempre em cada linha, palavras
-                    // com a mesma quantidade de caracteres.
-
-                    if(contador_de_palavras!= 0)
+                    catch (Exception exc)
                     {
-                        contador_de_palavras = 0;
-
-                        Gerar_Nome_de_Arquivo();
-                        Gravar_Conteudo_no_Arquivo();
-                        Gravar_Arquivo_Lido_Arquivo_Gerado("INTEGRAL");
+                        MessageBox.Show("Erro" + exc.Message);
                     }
-
-
-
-                    // Vamos apontar 'proxima_lista_de_palavras' para 'lista_de_palavras';
-                    lista_de_palavras.Clear();
-                    proxima_lista_de_palavras.Clear();
-
-                    if (bInterromper_geracao)
-                        break;
-
-                    //if (++quantidade_de_caracteres > caracteres_por_palavra)
-                    //    break;
                 }
 
                 Fechar_Arquivo();

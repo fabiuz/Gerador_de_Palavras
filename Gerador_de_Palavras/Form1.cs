@@ -13,8 +13,19 @@ using System.Net;
 
 namespace Gerador_de_Palavras
 {
+    
     public partial class Form1 : Form
     {
+        private List<GeradorDePalavras> lista_GeradorDePalavras;
+        private GeradorDePalavras geradorDePalavras;
+
+        private List<Thread> lista_de_Threads;
+        private Thread geradorDePalavrasThread;
+
+        
+        CancellationToken cancellationToken = new CancellationToken();
+        CancellationTokenSource cancellationTokenSource;
+
         private string strDiretorio = "";
         //private string caracteres_selecionados = "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ÀÁÂÃÇÉÊÍÒÓÔÕÚàáâãçéêíóôõú";
         private string caracteres_selecionados = "";
@@ -473,8 +484,8 @@ namespace Gerador_de_Palavras
                     continue;
 
                 string strTexto = caractere.ToString();
-                strTexto += ", ASC=" + string.Format("{0:D3}", iA);
-                strTexto += ", HEX=" + string.Format("{0:X02}", iA);
+                strTexto += ", " + string.Format("{0:D3}", iA);
+                strTexto += ", 0x" + string.Format("{0:X02}", iA);
 
                 // Agora, iremos distribuir os caracteres no listbox, conforme o tipo do caractere.                                
                 if (char.IsDigit(caractere))
@@ -502,16 +513,8 @@ namespace Gerador_de_Palavras
                         else
                             lskMaiuscula.Items.Add(strTexto);
                     }
-
                 }
-
-
-
             }
-
-    
-
-
         }
 
 
@@ -543,6 +546,9 @@ namespace Gerador_de_Palavras
             upCaracteres_por_Palavra.Value = 10;
             //txtCaracteres_Selecionados.Text = caracteres_selecionados;
             rotulo_dos_caracteres.Text = caracteres_selecionados;
+
+            lista_GeradorDePalavras = new List<GeradorDePalavras>();
+            lista_GeradorDePalavras.Clear();
         }
 
         private void checkBox_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -725,6 +731,7 @@ namespace Gerador_de_Palavras
 
         private void btnGerar_Click(object sender, EventArgs e)
         {
+                        
             // Se não há caracteres retornar com um erro.
             if(caracteres_selecionados.Length == 0)
             {
@@ -734,11 +741,49 @@ namespace Gerador_de_Palavras
 
             btnGerar.Enabled = false;
             btnParar.Enabled = true;
-            thread_de_palavras = new Thread(new ThreadStart(Gerar_Palavras));
-            thread_de_palavras.Start();
+
+            cancellationTokenSource = new CancellationTokenSource();
+
+            geradorDePalavras = new GeradorDePalavras(
+                (int)nmQuantidadeMinima.Value, (int)nmQuantidadeMaxima.Value,
+                caracteres_selecionados.ToCharArray().ToList<char>(), cancellationTokenSource.Token);
+
+            geradorDePalavras.GeradorDePalavrasEvent += GeradorDePalavras_GeradorDePalavrasEvent;
+            //geradorDePalavras.GeradorDePalavrasEvent2 += GeradorDePalavras_GeradorDePalavrasEvent2; ;
+
+            geradorDePalavrasThread = new Thread(geradorDePalavras.GerarPalavras);
+            geradorDePalavrasThread.Start();
+            
+            //thread_de_palavras = new Thread(new ThreadStart(Gerar_Palavras));
+            //thread_de_palavras.Start();
 
             //btnGerar.Enabled = false;
             //backgroundWorker1.RunWorkerAsync();
+        }
+
+        private void GeradorDePalavras_GeradorDePalavrasEvent2(GeradorDePalavrasEventArgs e)
+        {
+            //lock (log_geracao)
+            //{
+            //    log_geracao.Text = e.palavraGerada;
+            //}
+
+            if (log_geracao.InvokeRequired)
+            {
+                log_geracao.Invoke(new Action(() => log_geracao.Text = e.palavraGerada));
+            }
+        }
+
+        private void GeradorDePalavras_GeradorDePalavrasEvent(object sender, GeradorDePalavrasEventArgs e)
+        {
+            //lock (log_geracao){
+            //    log_geracao.Text = e.palavraGerada;
+            //}
+
+            if (log_geracao.InvokeRequired)
+            {
+                log_geracao.Invoke(new Action(() => log_geracao.Text = e.palavraGerada));
+            }
         }
 
 
@@ -755,8 +800,6 @@ namespace Gerador_de_Palavras
                 strDiretorio_selecionado  = dlgDiretorio.SelectedPath;
                 txtDiretorio.Text = strDiretorio_selecionado;
             }
-
-            
         }
 
         private void upLinhas_por_Arquivo_ValueChanged(object sender, EventArgs e)
@@ -801,15 +844,19 @@ namespace Gerador_de_Palavras
         {
             if(MessageBox.Show("Desejar interromper a geração.", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information)== DialogResult.Yes)
             {
-                bInterromper_geracao = true;
-                // Ativar e desativar controles.
+                cancellationTokenSource.Cancel();
                 btnGerar.Enabled = true;
                 btnParar.Enabled = false;
-                if (thread_de_palavras.IsAlive)
-                {
-                    thread_de_palavras.Suspend();
-                    thread_de_palavras.Interrupt();
-                }
+
+                //bInterromper_geracao = true;
+                //// Ativar e desativar controles.
+                //btnGerar.Enabled = true;
+                //btnParar.Enabled = false;
+                //if (thread_de_palavras.IsAlive)
+                //{
+                //    thread_de_palavras.Suspend();
+                //    thread_de_palavras.Interrupt();
+                //}
             }
         }
 
@@ -832,6 +879,29 @@ namespace Gerador_de_Palavras
             {
                 strDiretorio_selecionado = dlgDiretorio.SelectedPath;
                 txtDiretorio.Text = strDiretorio_selecionado;
+            }
+        }
+
+  
+
+        private void btnMarcar_Digitos_Click(object sender, EventArgs e)
+        {
+            marcar_todos(lskDigitos);
+        }
+
+        private void GeradorDePalavrasStatus(object sender, GeradorDePalavrasEventArgs e)
+        {
+
+        }
+
+        private void chkLog_Visivel_CheckedChanged(object sender, EventArgs e)
+        {
+            if(geradorDePalavras!=null)
+            {
+                if (chkLog_Visivel.Checked)
+                    geradorDePalavras.GeradorDePalavrasEvent += GeradorDePalavras_GeradorDePalavrasEvent;
+                else
+                    geradorDePalavras.GeradorDePalavrasEvent -= GeradorDePalavras_GeradorDePalavrasEvent;
             }
         }
     }

@@ -16,7 +16,7 @@ namespace Gerador_de_Palavras
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new frmGeradorDePalavras());
         }
     }
 }

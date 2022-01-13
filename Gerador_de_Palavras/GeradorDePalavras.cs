@@ -125,11 +125,7 @@ namespace Gerador_de_Palavras
         {
 			if (!validar_dados())
             {
-				GeradorDePalavrasEventHandler2 temp = GeradorDePalavrasEvent2;
-                if (temp != null)
-                {
-					temp(eventArgs);
-                }
+				GeradorDePalavrasEvent?.Invoke(this, eventArgs);
             }
 
 			StringBuilder palavra_gerada = new StringBuilder(qt_max_de_caracteres);
@@ -206,14 +202,7 @@ namespace Gerador_de_Palavras
 					GeradorDePalavrasEvent2?.Invoke(eventArgs);
 					break;
 				}
-
-
 			}
-
 		}
-
-
-
-
 	}
 }

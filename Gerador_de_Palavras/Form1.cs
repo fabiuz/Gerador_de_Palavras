@@ -215,8 +215,6 @@ namespace Gerador_de_Palavras
                 {
                     try
                     {
-
-
                         // Serve para guarda a próxima lista de palavras criadas, quando, termina o processamento
                         // iremos apontar a variável 'proxima_lista_de_palavras' para 'lista_de_palavras'.
                         contagem_de_linha = 0;
@@ -315,12 +313,8 @@ namespace Gerador_de_Palavras
                                     strTexto_do_log += "palavra gerada: '" + strNova_Palavra + "', ";
                                     strTexto_do_log += "cmb: " + string.Format("Qt. de palavras: {0:D10}.", strNova_Palavra.Length);
                                     log_geracao.Text = strTexto_do_log;
-
                                 }
-
-
                             }
-
                         }
 
                         // Toda vez que lemos um arquivo, todas as palavras de cada linha deve ter a mesma quantidade de caracteres.

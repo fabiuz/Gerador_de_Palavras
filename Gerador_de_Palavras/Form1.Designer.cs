@@ -93,6 +93,9 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.dlgDiretorio = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -125,6 +128,9 @@
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.upLinhas_por_Arquivo)).BeginInit();
             this.groupBox8.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -482,9 +488,7 @@
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.btnMarcar_Digitos);
-            this.tabPage6.Controls.Add(this.btnDesmarcar_Digito);
-            this.tabPage6.Controls.Add(this.grpDigitos);
+            this.tabPage6.Controls.Add(this.tableLayoutPanel5);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -495,9 +499,10 @@
             // 
             // btnMarcar_Digitos
             // 
-            this.btnMarcar_Digitos.Location = new System.Drawing.Point(209, 19);
+            this.btnMarcar_Digitos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnMarcar_Digitos.Location = new System.Drawing.Point(3, 257);
             this.btnMarcar_Digitos.Name = "btnMarcar_Digitos";
-            this.btnMarcar_Digitos.Size = new System.Drawing.Size(140, 23);
+            this.btnMarcar_Digitos.Size = new System.Drawing.Size(194, 22);
             this.btnMarcar_Digitos.TabIndex = 29;
             this.btnMarcar_Digitos.Text = "Marcar todos";
             this.btnMarcar_Digitos.UseVisualStyleBackColor = true;
@@ -505,9 +510,10 @@
             // 
             // btnDesmarcar_Digito
             // 
-            this.btnDesmarcar_Digito.Location = new System.Drawing.Point(209, 48);
+            this.btnDesmarcar_Digito.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDesmarcar_Digito.Location = new System.Drawing.Point(3, 285);
             this.btnDesmarcar_Digito.Name = "btnDesmarcar_Digito";
-            this.btnDesmarcar_Digito.Size = new System.Drawing.Size(140, 23);
+            this.btnDesmarcar_Digito.Size = new System.Drawing.Size(194, 22);
             this.btnDesmarcar_Digito.TabIndex = 30;
             this.btnDesmarcar_Digito.Text = "Desmarcar todos";
             this.btnDesmarcar_Digito.UseVisualStyleBackColor = true;
@@ -516,10 +522,10 @@
             // grpDigitos
             // 
             this.grpDigitos.Controls.Add(this.lskDigitos);
-            this.grpDigitos.Dock = System.Windows.Forms.DockStyle.Left;
+            this.grpDigitos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpDigitos.Location = new System.Drawing.Point(3, 3);
             this.grpDigitos.Name = "grpDigitos";
-            this.grpDigitos.Size = new System.Drawing.Size(200, 310);
+            this.grpDigitos.Size = new System.Drawing.Size(194, 248);
             this.grpDigitos.TabIndex = 1;
             this.grpDigitos.TabStop = false;
             this.grpDigitos.Text = "Digitos:";
@@ -531,15 +537,13 @@
             this.lskDigitos.FormattingEnabled = true;
             this.lskDigitos.Location = new System.Drawing.Point(3, 16);
             this.lskDigitos.Name = "lskDigitos";
-            this.lskDigitos.Size = new System.Drawing.Size(194, 291);
+            this.lskDigitos.Size = new System.Drawing.Size(188, 229);
             this.lskDigitos.TabIndex = 0;
             this.lskDigitos.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkBox_ItemCheck);
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.btnDesmarcar_Simbolo);
-            this.tabPage7.Controls.Add(this.btnMarcar_Simbolo);
-            this.tabPage7.Controls.Add(this.grpSimbolos);
+            this.tabPage7.Controls.Add(this.tableLayoutPanel6);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
@@ -550,11 +554,10 @@
             // 
             // btnDesmarcar_Simbolo
             // 
-            this.btnDesmarcar_Simbolo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDesmarcar_Simbolo.Location = new System.Drawing.Point(209, 48);
+            this.btnDesmarcar_Simbolo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDesmarcar_Simbolo.Location = new System.Drawing.Point(3, 285);
             this.btnDesmarcar_Simbolo.Name = "btnDesmarcar_Simbolo";
-            this.btnDesmarcar_Simbolo.Size = new System.Drawing.Size(140, 23);
+            this.btnDesmarcar_Simbolo.Size = new System.Drawing.Size(194, 22);
             this.btnDesmarcar_Simbolo.TabIndex = 14;
             this.btnDesmarcar_Simbolo.Text = "Desmarcar todos";
             this.btnDesmarcar_Simbolo.UseVisualStyleBackColor = true;
@@ -562,11 +565,10 @@
             // 
             // btnMarcar_Simbolo
             // 
-            this.btnMarcar_Simbolo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMarcar_Simbolo.Location = new System.Drawing.Point(209, 19);
+            this.btnMarcar_Simbolo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnMarcar_Simbolo.Location = new System.Drawing.Point(3, 257);
             this.btnMarcar_Simbolo.Name = "btnMarcar_Simbolo";
-            this.btnMarcar_Simbolo.Size = new System.Drawing.Size(140, 23);
+            this.btnMarcar_Simbolo.Size = new System.Drawing.Size(194, 22);
             this.btnMarcar_Simbolo.TabIndex = 11;
             this.btnMarcar_Simbolo.Text = "Marcar todos";
             this.btnMarcar_Simbolo.UseVisualStyleBackColor = true;
@@ -575,10 +577,10 @@
             // grpSimbolos
             // 
             this.grpSimbolos.Controls.Add(this.lskSimbolo);
-            this.grpSimbolos.Dock = System.Windows.Forms.DockStyle.Left;
+            this.grpSimbolos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpSimbolos.Location = new System.Drawing.Point(3, 3);
             this.grpSimbolos.Name = "grpSimbolos";
-            this.grpSimbolos.Size = new System.Drawing.Size(200, 310);
+            this.grpSimbolos.Size = new System.Drawing.Size(194, 248);
             this.grpSimbolos.TabIndex = 5;
             this.grpSimbolos.TabStop = false;
             this.grpSimbolos.Text = "Símbolos:";
@@ -590,15 +592,13 @@
             this.lskSimbolo.FormattingEnabled = true;
             this.lskSimbolo.Location = new System.Drawing.Point(3, 16);
             this.lskSimbolo.Name = "lskSimbolo";
-            this.lskSimbolo.Size = new System.Drawing.Size(194, 291);
+            this.lskSimbolo.Size = new System.Drawing.Size(188, 229);
             this.lskSimbolo.TabIndex = 0;
             this.lskSimbolo.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkBox_ItemCheck);
             // 
             // tabPage8
             // 
-            this.tabPage8.Controls.Add(this.btnDesmarcar_Pontuacao);
-            this.tabPage8.Controls.Add(this.btnMarcar_Pontuacao);
-            this.tabPage8.Controls.Add(this.grpPontuacao);
+            this.tabPage8.Controls.Add(this.tableLayoutPanel1);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
@@ -609,9 +609,10 @@
             // 
             // btnDesmarcar_Pontuacao
             // 
-            this.btnDesmarcar_Pontuacao.Location = new System.Drawing.Point(209, 48);
+            this.btnDesmarcar_Pontuacao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDesmarcar_Pontuacao.Location = new System.Drawing.Point(3, 285);
             this.btnDesmarcar_Pontuacao.Name = "btnDesmarcar_Pontuacao";
-            this.btnDesmarcar_Pontuacao.Size = new System.Drawing.Size(140, 21);
+            this.btnDesmarcar_Pontuacao.Size = new System.Drawing.Size(194, 22);
             this.btnDesmarcar_Pontuacao.TabIndex = 16;
             this.btnDesmarcar_Pontuacao.Text = "Desmarcar todos";
             this.btnDesmarcar_Pontuacao.UseVisualStyleBackColor = true;
@@ -619,9 +620,10 @@
             // 
             // btnMarcar_Pontuacao
             // 
-            this.btnMarcar_Pontuacao.Location = new System.Drawing.Point(209, 19);
+            this.btnMarcar_Pontuacao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnMarcar_Pontuacao.Location = new System.Drawing.Point(3, 257);
             this.btnMarcar_Pontuacao.Name = "btnMarcar_Pontuacao";
-            this.btnMarcar_Pontuacao.Size = new System.Drawing.Size(140, 23);
+            this.btnMarcar_Pontuacao.Size = new System.Drawing.Size(194, 22);
             this.btnMarcar_Pontuacao.TabIndex = 12;
             this.btnMarcar_Pontuacao.Text = "Marcar todos";
             this.btnMarcar_Pontuacao.UseVisualStyleBackColor = true;
@@ -630,10 +632,10 @@
             // grpPontuacao
             // 
             this.grpPontuacao.Controls.Add(this.lskPontuacao);
-            this.grpPontuacao.Dock = System.Windows.Forms.DockStyle.Left;
+            this.grpPontuacao.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpPontuacao.Location = new System.Drawing.Point(3, 3);
             this.grpPontuacao.Name = "grpPontuacao";
-            this.grpPontuacao.Size = new System.Drawing.Size(200, 310);
+            this.grpPontuacao.Size = new System.Drawing.Size(194, 248);
             this.grpPontuacao.TabIndex = 6;
             this.grpPontuacao.TabStop = false;
             this.grpPontuacao.Text = "Pontuação:";
@@ -645,7 +647,7 @@
             this.lskPontuacao.FormattingEnabled = true;
             this.lskPontuacao.Location = new System.Drawing.Point(3, 16);
             this.lskPontuacao.Name = "lskPontuacao";
-            this.lskPontuacao.Size = new System.Drawing.Size(194, 291);
+            this.lskPontuacao.Size = new System.Drawing.Size(188, 229);
             this.lskPontuacao.TabIndex = 0;
             this.lskPontuacao.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkBox_ItemCheck);
             // 
@@ -916,6 +918,57 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.btnMarcar_Pontuacao, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.grpPontuacao, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnDesmarcar_Pontuacao, 0, 2);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 310);
+            this.tableLayoutPanel1.TabIndex = 17;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Controls.Add(this.grpDigitos, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.btnDesmarcar_Digito, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.btnMarcar_Digitos, 0, 1);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 3;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(200, 310);
+            this.tableLayoutPanel5.TabIndex = 31;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 1;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Controls.Add(this.grpSimbolos, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.btnDesmarcar_Simbolo, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.btnMarcar_Simbolo, 0, 1);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 3;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(200, 310);
+            this.tableLayoutPanel6.TabIndex = 15;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -964,6 +1017,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.upLinhas_por_Arquivo)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1034,6 +1090,9 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.CheckBox chkOrdenar_Ascii;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
     }
 }
 

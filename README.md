@@ -28,3 +28,10 @@ Gere todas as combinações possíveis de caracteres, utilizando um ou mais cara
 `Recursos a serem implementados:`
 . Continuar a geração das combinações de onde parou, principalmente, pra combinações com muitos caracteres.
 
+
+
+`Erros Conhecidos`
+Em linux, este erro pode ocorrer: 
+Resource temporarily unavailable [EWOULDBLOCK].
+Solução: Em análise.
+
